@@ -3,6 +3,7 @@ import Layout from '@/components/layout';
 import Form from '@/components/form';
 import ResultBox from '@/components/result';
 import EnglishService from '@/services/english.service';
+import LoadingSpinner from '@/components/layout/LoadingSpinner';
 
 const Home = () => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -32,6 +33,8 @@ const Home = () => {
 
   return (
     <Layout>
+      {isLoading && <LoadingSpinner />}
+
       <div className="md:flex justify-between md:space-x-20">
         <Form
           handleSubmit={handleSubmit}
