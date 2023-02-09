@@ -1,8 +1,10 @@
+import Layout from '@/components/layout';
+
 const Home = () => {
   return (
-    <div>
-      <h1 className="text-red-500">Hola</h1>
-    </div>
+    <Layout>
+      <div></div>
+    </Layout>
   );
 };
 
