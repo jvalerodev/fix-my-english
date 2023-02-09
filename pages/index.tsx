@@ -1,9 +1,12 @@
 import Layout from '@/components/layout';
+import Form from '@/components/form';
 
 const Home = () => {
   return (
     <Layout>
-      <div></div>
+      <div className="md:flex justify-between md:space-x-20">
+        <Form />
+      </div>
     </Layout>
   );
 };
