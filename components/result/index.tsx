@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import useTypingEffect from '@/hooks/useTypingEffect';
 
 type Props = {
   result: string;
 };
 
 const ResultBox = ({ result }: Props) => {
+  const { displayText, showCursor } = useTypingEffect({ text: result });
   const [copy, setCopy] = useState('Copy!');
 
   const handleCopy = () => {
@@ -18,13 +20,17 @@ const ResultBox = ({ result }: Props) => {
 
   return (
     <div className="flex-1">
-      <textarea
-        id="result"
-        className="p-3 w-full h-80 bg-transparent text-green-500 text-xl border border-gray-300 rounded-lg outline-none resize-none"
-        placeholder="Type something to get a result..."
-        value={result}
-        disabled={true}
-      />
+      <div className="p-3 w-full h-80 bg-transparent border border-gray-300 rounded-lg outline-none">
+        <p
+          className={`text-green-500 text-xl ${
+            showCursor
+              ? 'after:content-["|"] after:ml-1 after:font-bold after:text-2xl after:animate-typing'
+              : ''
+          }`}
+        >
+          {displayText}
+        </p>
+      </div>
 
       {result && (
         <div className="text-center mt-5">
