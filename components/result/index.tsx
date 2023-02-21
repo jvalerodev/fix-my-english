@@ -20,7 +20,7 @@ const ResultBox = ({ result }: Props) => {
 
   return (
     <div className="flex-1">
-      <div className="p-3 w-full h-80 bg-transparent border border-gray-300 rounded-lg outline-none">
+      <div className="p-3 w-full h-80 bg-transparent border border-green-600 rounded-lg outline-none">
         <p
           className={`text-green-500 text-xl ${
             showCursor
